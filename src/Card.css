@@ -1,31 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Goldman&display=swap");
 
-.robotsCard{
-    display: inline-block;
-    text-align: center;
-    padding:3px;
-    border-radius:5px;
-    margin:8px;
-    background-color: #9ad3bc; 
+.robotsCard {
+  display: inline-block;
+  text-align: center;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 8px;
+  background-color: #9ad3bc;
 }
 
-.title{
-    color:#ec524b;
-    font-family: 'Goldman', cursive;
-    font-size: 4rem;
-    text-align: center;
+.title {
+  color: #ec524b;
+  font-family: "Goldman", cursive;
+  font-size: 4rem;
+  text-align: center;
 }
 
-.box{
-    height: 2.5rem;
-    width: 300px;
-    padding: 5px;
-    margin-bottom: 15px;
-    border-radius: 2rem;
-    border: #f5b461;
-    color: #ec524b;
+.box {
+  height: 2.5rem;
+  width: 300px;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 2rem;
+  border: #f5b461;
+  color: #ec524b;
 }
 
-.attribution{
-    color:#ec524b;
+.box:focus {
+  outline: none;
+}
+
+.box::placeholder {
+  color: #ec524b;
+}
+
+.attribution {
+  color: #ec524b;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .title {
+    font-size: 3rem;
+    margin: 10px;
+  }
+
+  .box {
+    height: 2rem;
+    width: 250px;
+    margin: 10px 10px 20px;
+  }
 }
