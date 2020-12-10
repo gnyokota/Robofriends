@@ -1,5 +1,0 @@
-{
-    "prettier.documentSelectors": [
-        "\"editor.formatOnSave\": true"
-    ]
-}
