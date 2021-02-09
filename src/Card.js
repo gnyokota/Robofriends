@@ -3,7 +3,6 @@ import 'tachyons';
 import './Card.css'
 
 function Card(props){
-    //const {name,email,id} = props;
     return(
         <div className='robotsCard grow'>
             <img alt='roboCards' src={`https://robohash.org/${props.id}?size=150x150`}></img>
