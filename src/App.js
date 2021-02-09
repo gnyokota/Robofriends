@@ -17,7 +17,6 @@ function App() {
     }
     fetchData();
   }catch(err){console.error(err.response)}
-    
   },[]);
   
   //   Here the function is changing the value of the searchField according to the input
