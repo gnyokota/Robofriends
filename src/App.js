@@ -4,6 +4,7 @@ import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 import { robots } from "./robots";
 import Scroll from "./Scroll";
+import ErrorBoundary from "./ErrorBoundary";
 
 function App() {
   const [user, setUser] = useState({
@@ -25,14 +26,16 @@ function App() {
     <div>
       <h1 className="title">Robofriends</h1>
       {/* since this is a class, I need to add this */}
-      <SearchBox searchChange={onSearchChange} />
-      <Scroll>
-        <CardList robot={filteredRobots} />
-      </Scroll>
-      <p className="attribution">
-        Coded by{" "}
-        <a href="https://www.linkedin.com/in/gyokota/">Giovana Yokota</a>
-      </p>
+      <ErrorBoundary>
+        <SearchBox searchChange={onSearchChange} />
+        <Scroll>
+          <CardList robot={filteredRobots} />
+        </Scroll>
+        <p className="attribution">
+          Coded by{" "}
+          <a href="https://www.linkedin.com/in/gyokota/">Giovana Yokota</a>
+        </p>
+      </ErrorBoundary>
     </div>
   );
 }
