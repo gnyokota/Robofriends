@@ -1,0 +1,2 @@
+export const CHANGE_SEARCHFIELD = "CHANGE_SEARCHFIELD";
+export const GET_ROBOTS = "GET_ROBOTS";
