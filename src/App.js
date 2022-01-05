@@ -5,7 +5,7 @@ import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import Scroll from "./components/Scroll";
 import ErrorBoundary from "./ErrorBoundary";
-import { setSearchField, setRobots } from "./redux/actions";
+import { setSearchField, getRobotsAction } from "./redux/actions";
 
 import "./components/Card.css";
 
@@ -13,17 +13,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fecthUser = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      const users = await response.json();
-      dispatch(setRobots(users));
-    };
-    fecthUser();
+    dispatch(getRobotsAction());
   }, [dispatch]);
 
-  const { searchField, robots } = useSelector((state) => state);
+  const { searchField, robotsData, isPending } = useSelector((state) => state);
 
   //   Here the function is changing the value of the searchField according to the input
   function onSearchChange(event) {
@@ -31,7 +24,8 @@ function App() {
   }
 
   //   this function will filter the cardList according to the input set by the event
-  const filteredRobots = robots.filter((robot) => {
+  const filteredRobots = robotsData.filter((robot) => {
+    console.log(robot.name);
     return robot.name.toLowerCase().includes(searchField.toLowerCase());
   });
 
@@ -42,7 +36,11 @@ function App() {
       <ErrorBoundary>
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
-          <CardList robot={filteredRobots} />
+          {isPending ? (
+            <h1>Loading...</h1>
+          ) : (
+            <CardList robot={filteredRobots} />
+          )}
         </Scroll>
         <p className="attribution">
           Coded by{" "}

@@ -1,12 +1,21 @@
-import { createStore, compose } from "redux";
-import { searchRobots } from "./reducers";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-const initialState = { searchField: "", robots: [] };
+import { robotsReducer } from "./reducers";
+
+const initialState = {
+  serachField: "",
+  robotsData: [],
+  isPending: false,
+  error: null,
+};
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
-  searchRobots,
+  robotsReducer,
   initialState,
-  composeEnhancers()
+  composeEnhancers(applyMiddleware(thunk))
 );
+
+//113: 24min
